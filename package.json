@@ -4,14 +4,15 @@
   "description": "npm start",
   "main": "index.js",
   "scripts": {
-    "start": "cd backend && node app.js",
-    "dev" : "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Divyansh Singh Panwar",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.3.0",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.14"
   }
 }
