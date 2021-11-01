@@ -4,15 +4,21 @@
   "description": "npm start",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
+    "build": "concurrently \"cd frontend && npm build\" \"cd backend && npm build\" ",
+    "install": "(cd frontend && npm) && (cd backend && npm)",
+    "start": "concurrently  \"cd frontend && SET PORT=3000 npm start\" \"cd backend && SET PORT=3001 npm start\"",
+    "heroku-postbuild": "npm build",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:prod": "cd backend && npm start:prod"
   },
   "author": "Divyansh Singh Panwar",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.3.0",
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "rimraf": "^3.0.2",
+    "yarn": "^1.22.17"
   }
 }
