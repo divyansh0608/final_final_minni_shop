@@ -6,11 +6,16 @@
   "scripts": {
     "build": "concurrently \"cd frontend && npm build\" \"cd backend && npm build\" ",
     "install": "(cd frontend && npm) && (cd backend && npm)",
-    "start": "concurrently  \"cd frontend && SET PORT=3000 npm start\" \"cd backend && SET PORT=3001 npm start\"",
-    "heroku-postbuild": "npm build",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
+    "start": "cd backend && node app.js",
+    
+    
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:prod": "cd backend && npm start:prod"
+    "start:prod": "cd backend && npm start:prod",
+
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && nodemon app.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\" ",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "author": "Divyansh Singh Panwar",
   "license": "ISC",
